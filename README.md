@@ -1,3 +1,3 @@
-# No Save
+# Whatsapp Don't Save
 
-A flutter app to start a WhatsApp chat with a someone without saving their number.
+A flutter app to start a whatsapp chat with a someone without saving their number.

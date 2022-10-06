@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: "WhatsApp Don't Save",
+      title: "No Save",
       supportedLocales: [Locale("en", "US")],
       localizationsDelegates: [CountryLocalizations.delegate],
       home: Home(),
@@ -28,7 +28,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final _controller = TextEditingController();
+  final _controller = TextEditingController(text: '+');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +45,6 @@ class _HomeState extends State<Home> {
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(
                 prefixIconColor: Colors.white,
-                hintText: "With country code (91,1.....)",
                 labelText: "Enter phone number With country code",
                 border: OutlineInputBorder()),
           ),
@@ -91,6 +90,12 @@ class _HomeState extends State<Home> {
   // ignore: prefer_final_fields
   var _url = "whatsapp://send?phone=";
   void _launchURL(txt) async => await canLaunch(_url + txt)
-      ? await launch(_url + txt)
-      : throw 'Could not launch $_url';
+      ? await launch(_url + txt):
+      ScaffoldMessenger.of(context).showSnackBar(
+  const SnackBar(
+    duration: Duration(seconds: 5),
+    content: Text("Can't find Wahtsapp"),
+    backgroundColor: Colors.red,
+  )
+);
 }

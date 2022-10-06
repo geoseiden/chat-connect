@@ -5,7 +5,7 @@
         <package android:name="com.whatsapp.w4b" />
     </queries>
    <application
-        android:label="Whatsapp Don't Save"
+        android:label="No Save"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
